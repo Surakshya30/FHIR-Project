@@ -1,0 +1,33 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "pnc-other-treatment-procedure",
+  "url": "http://example.org/fhir/StructureDefinition/pnc-other-treatment",
+  "version": "1.0.0",
+  "name": "PNCOtherTreatmentProcedure",
+  "status": "draft",
+  "date": "2025-05-23",
+  "publisher": "Your Organization Name",
+  "description": "Profile of Procedure resource to capture unspecified treatments or medications during postnatal care.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Procedure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.note",
+        "path": "Procedure.note",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Annotation"
+          }
+        ],
+        "short": "Free-text notes on other treatments or medications"
+      }
+    ]
+  }
+}

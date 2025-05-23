@@ -1,0 +1,102 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "pnc-observation-profile",
+  "url": "http://example.org/fhir/StructureDefinition/pnc-observation",
+  "version": "1.0.0",
+  "name": "PNCObservationProfile",
+  "status": "draft",
+  "date": "2025-05-23",
+  "publisher": "Your Organization Name",
+  "description": "Profile of Observation resource for postnatal care (PNC) data including blood pressure and postpartum conditions.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.component:systolic",
+        "path": "Observation.component",
+        "sliceName": "systolic",
+        "definition": {
+          "code": {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "8480-6",
+                "display": "Systolic blood pressure"
+              }
+            ]
+          },
+          "valueQuantity": {
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          }
+        }
+      },
+      {
+        "id": "Observation.component:diastolic",
+        "path": "Observation.component",
+        "sliceName": "diastolic",
+        "definition": {
+          "code": {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "8462-4",
+                "display": "Diastolic blood pressure"
+              }
+            ]
+          },
+          "valueQuantity": {
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          }
+        }
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "short": "Various PNC assessments (bleeding, mood, etc.)"
+      },
+      {
+        "id": "Observation.valueBoolean",
+        "path": "Observation.valueBoolean",
+        "short": "Boolean answers for danger signs (Yes/No)"
+      },
+      {
+        "id": "Observation.valueCodeableConcept",
+        "path": "Observation.valueCodeableConcept",
+        "binding": {
+          "strength": "required",
+          "valueSet": {
+            "valueSet": "http://example.org/fhir/ValueSet/pnc-breast-condition"
+          }
+        }
+      },
+      {
+        "id": "Observation.valueString",
+        "path": "Observation.valueString",
+        "short": "Text comment on cesarean wound (if applicable)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "pnc-family-planning-procedure",
+  "url": "http://example.org/fhir/StructureDefinition/pnc-family-planning",
+  "version": "1.0.0",
+  "name": "PNCFamilyPlanningProcedure",
+  "status": "draft",
+  "date": "2025-05-23",
+  "publisher": "Your Organization Name",
+  "description": "Profile of Procedure resource to capture family planning services during postnatal care.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Procedure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.code",
+        "path": "Procedure.code",
+        "min": 0,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": {
+            "valueSet": "http://example.org/fhir/ValueSet/family-planning-methods"
+          }
+        }
+      }
+    ]
+  }
+}

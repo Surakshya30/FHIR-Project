@@ -1,0 +1,75 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "pnc-encounter-profile",
+  "url": "http://example.org/fhir/StructureDefinition/pnc-encounter",
+  "version": "1.0.0",
+  "name": "PNCEncounterProfile",
+  "status": "draft",
+  "date": "2025-05-23",
+  "publisher": "Your Organization Name",
+  "description": "Profile of Encounter resource for recording postnatal care (PNC) data.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Encounter",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Encounter",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Encounter.location.location",
+        "path": "Encounter.location.location",
+        "binding": {
+          "strength": "required",
+          "valueSet": {
+            "valueSet": "http://example.org/fhir/ValueSet/pnc-location-type"
+          }
+        }
+      },
+      {
+        "id": "Encounter.extension:pncVisitTiming",
+        "path": "Encounter.extension",
+        "sliceName": "pncVisitTiming",
+        "definition": {
+          "short": "PNC visit timing based on national schedule",
+          "min": 0,
+          "max": "*",
+          "type": [
+            {
+              "code": "Extension"
+            }
+          ],
+          "extension": [
+            {
+              "url": "valueCodeableConcept",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://example.org/fhir/CodeSystem/pnc-visit-timing",
+                    "code": "first",
+                    "display": "First (within 48 hrs)"
+                  },
+                  {
+                    "system": "http://example.org/fhir/CodeSystem/pnc-visit-timing",
+                    "code": "second",
+                    "display": "Second (3 days)"
+                  },
+                  {
+                    "system": "http://example.org/fhir/CodeSystem/pnc-visit-timing",
+                    "code": "third",
+                    "display": "Third (7 days)"
+                  },
+                  {
+                    "system": "http://example.org/fhir/CodeSystem/pnc-visit-timing",
+                    "code": "fourth",
+                    "display": "Fourth (42 days)"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
