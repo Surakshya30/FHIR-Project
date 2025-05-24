@@ -1,0 +1,314 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "delivery-outcome-alive-births",
+        "url": "http://gov.np/fhir/StructureDefinition/delivery-outcome-alive-births",
+        "name": "DeliveryOutcomeAliveBirths",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Observation",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Observation.valueQuantity",
+              "path": "Observation.valueQuantity",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "Quantity"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "sex-of-alive-births",
+        "url": "http://gov.np/fhir/StructureDefinition/sex-of-alive-births",
+        "name": "SexOfAliveBirths",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Observation",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Observation.valueQuantity",
+              "path": "Observation.valueQuantity",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "Quantity"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "preterm-birth",
+        "url": "http://gov.np/fhir/StructureDefinition/preterm-birth",
+        "name": "PretermBirth",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Observation",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Observation.valueCodeableConcept",
+              "path": "Observation.valueCodeableConcept",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "CodeableConcept"
+                }
+              ],
+              "binding": {
+                "strength": "example",
+                "valueSet": "http://gov.np/fhir/ValueSet/yes-no"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "still-birth",
+        "url": "http://gov.np/fhir/StructureDefinition/still-birth",
+        "name": "StillBirth",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Observation",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Observation.valueCodeableConcept",
+              "path": "Observation.valueCodeableConcept",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "CodeableConcept"
+                }
+              ],
+              "binding": {
+                "strength": "example",
+                "valueSet": "http://gov.np/fhir/ValueSet/stillbirth-type"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "status-of-newborn",
+        "url": "http://gov.np/fhir/StructureDefinition/status-of-newborn",
+        "name": "StatusOfNewborn",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Observation",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Observation.valueCodeableConcept",
+              "path": "Observation.valueCodeableConcept",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "CodeableConcept"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "congenital-anomalies",
+        "url": "http://gov.np/fhir/StructureDefinition/congenital-anomalies",
+        "name": "CongenitalAnomalies",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Observation",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Observation.valueCodeableConcept",
+              "path": "Observation.valueCodeableConcept",
+              "min": 0,
+              "max": "*",
+              "type": [
+                {
+                  "code": "CodeableConcept"
+                }
+              ],
+              "binding": {
+                "strength": "preferred",
+                "valueSet": "http://snomed.info/sct"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "vitamin-a-provided-date",
+        "url": "http://gov.np/fhir/StructureDefinition/vitamin-a-provided-date",
+        "name": "VitaminAProvidedDate",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Procedure",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Procedure",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Procedure.performedDateTime",
+              "path": "Procedure.performedDateTime",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "dateTime"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "number-of-iron-tablets-provided",
+        "url": "http://gov.np/fhir/StructureDefinition/number-of-iron-tablets-provided",
+        "name": "NumberOfIronTabletsProvided",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Observation",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Observation.valueQuantity",
+              "path": "Observation.valueQuantity",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "Quantity"
+                }
+              ],
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/quantity-unit",
+                  "valueString": "tablets"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "number-of-pnc",
+        "url": "http://gov.np/fhir/StructureDefinition/number-of-pnc",
+        "name": "NumberOfPNC",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Observation",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Observation.valueQuantity",
+              "path": "Observation.valueQuantity",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "Quantity"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "id": "date-of-pnc",
+        "url": "http://gov.np/fhir/StructureDefinition/date-of-pnc",
+        "name": "DateOfPNC",
+        "status": "draft",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Encounter",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Encounter",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Encounter.period.start",
+              "path": "Encounter.period.start",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "dateTime"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
