@@ -8,7 +8,6 @@
   "date": "2025-05-23",
   "publisher": "Your Organization Name",
   "description": "Profile of Encounter resource for recording postnatal care (PNC) data.",
-  "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
   "type": "Encounter",
