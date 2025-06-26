@@ -1,0 +1,50 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "StatusOfChildObservation",
+  "url": "http://example.org/fhir/StructureDefinition/StatusOfChildObservation",
+  "name": "StatusOfChildObservation",
+  "title": "Status of Child Observation",
+  "status": "active",
+  "date": "2025-05-23",
+  "publisher": "PNC Health System - Nepal",
+  "description": "Observation to capture the general condition of the newborn child at the time of delivery (e.g., normal or abnormal).",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.valueCodeableConcept",
+        "path": "Observation.valueCodeableConcept",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://example.org/fhir/ValueSet/newborn-condition"
+        }
+      },
+      {
+        "id": "Observation.code",
+        "path": "Observation.code",
+        "fixedCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://example.org/fhir/CodeSystem/pnc-child-status",
+              "code": "newborn-condition",
+              "display": "General newborn condition"
+            }
+          ],
+          "text": "Status of Child"
+        }
+      }
+    ]
+  }
+}
